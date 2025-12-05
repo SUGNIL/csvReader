@@ -199,6 +199,8 @@ if uploaded_file:
             else:
                 final_df = df[selected_columns].copy()
 
+        final_df = final_df.fillna("")
+
         # Convert to CSV
         csv_data = final_df.to_csv(index=False)
 
@@ -224,3 +226,4 @@ if uploaded_file:
                     st.error(f"Error saving file: {e}")
             else:
                 st.warning("Please provide a valid file path.")
+
